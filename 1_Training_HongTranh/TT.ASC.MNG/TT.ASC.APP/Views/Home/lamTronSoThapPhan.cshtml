@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "lamTronSoThapPhan";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>12. Tìm hiểu các dạng làm tròn và viết hàm làm tròn các số thập phân truyền vào theo các dạng: Floor, Truncate, Round, Ceiling</h3>
+    <form action="/Home/XuLyLamTronSoThapPhan" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Số Thập Phân</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtSoThapPhan" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Làm tròn" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

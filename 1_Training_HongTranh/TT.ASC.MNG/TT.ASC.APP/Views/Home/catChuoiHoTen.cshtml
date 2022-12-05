@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "catChuoiHoTen";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>11.	Viết hàm cắt chuỗi họ tên (tách ra họ và tên đệm khi một chuổi họ tên được truyền vào)</h3>
+    <form action="/Home/XuLyCatChuoiHoTen" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Họ và Tên</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtHoTen" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Cắt Chuỗi" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

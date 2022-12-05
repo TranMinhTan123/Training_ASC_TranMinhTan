@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "TreeView";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+@using TT.ASC.APP.Models;
+
+<div class="container">
+    <h3>3</h3>
+    <form action="/Home/TreeViewCoSo" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Số Cơ Sở</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtCoSo" />
+                    </td>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Số Lớp</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtLop" />
+                    </td>
+                </tr>
+                @*<tr>
+                        <td>
+                            <span style="font-size:17px;font-weight:bold;">Nhập Số SV Nam</span>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="txtSVNam" />
+                        </td>
+                    </tr>*@
+                <tr>
+                    <td>
+                        <input type="submit" value="Sắp xếp" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+@if (Model != null)
+{
+<ul ul class="nav flex-column">
+    @{foreach (CoSo cs in Model)
+    {
+        <li>
+            <a>
+                <i class="fa fa-desktop"></i>
+                <span>@Html.DisplayFor(modelItem => cs.Ma)</span>
+                <span class="menu-arrow"></span>
+            </a>
+            <ul> 
+                @{foreach (LopHoc lh in Model)
+                {
+                     
+                    <li>
+                        <a>
+                            <i class="fas fa-hand-point-right"></i>
+                            <span>@lh.TenLop</span>
+                        </a>
+                    </li>
+                }
+                }
+            </ul>
+        </li>
+      }
+    }
+</ul>
+}
+else
+{
+    <span>
+        Chưa có thông tin
+    </span>
+}

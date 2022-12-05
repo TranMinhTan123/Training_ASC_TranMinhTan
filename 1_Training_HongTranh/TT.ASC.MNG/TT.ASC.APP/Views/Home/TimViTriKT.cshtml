@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "TimViTriKT";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>1.	Viết hàm kiểm tra chuỗi ký tự, kết quả trả về xác định được trong chuỗi có bao nhiêu ký tự được tìm và ở vị trí bao nhiêu.</h3>
+    <form action="/Home/XuLyTimViTriKT" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Chuỗi Ký Tự</span>
+                    </td>
+                    <td colspan="2">
+                        <input type="text" class="form-control" name="txtChuoiKyTu" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Ký Tự Cần Tìm</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtKyTu" />
+                    </td>
+                    <td colspan="2">
+                        <input type="submit" value="Chuyển đổi" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

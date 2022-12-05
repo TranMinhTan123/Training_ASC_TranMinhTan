@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "XuatNgayDauTien";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>5.	Viết hàm truyền vào Tháng và Năm, trả về ngày đầu tiên của tháng</h3>
+    <form action="/Home/XuLyXuatNgayDauTien" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập tháng</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtThang" />
+                    </td>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập năm</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtNam" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Xuất ngày đầu tiên" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

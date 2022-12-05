@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31729.503
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTH5_EntityFrameWork_TranMinhTan", "BTH5_EntityFrameWork_TranMinhTan\BTH5_EntityFrameWork_TranMinhTan.csproj", "{38F0EE9A-37B0-4D83-8079-4BEE627EF70F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTH5_EFW", "BTH5_EFW\BTH5_EFW.csproj", "{F09AADAF-2D47-4F25-9CE4-EAB7409EC57B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38F0EE9A-37B0-4D83-8079-4BEE627EF70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F0EE9A-37B0-4D83-8079-4BEE627EF70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F0EE9A-37B0-4D83-8079-4BEE627EF70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F0EE9A-37B0-4D83-8079-4BEE627EF70F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F09AADAF-2D47-4F25-9CE4-EAB7409EC57B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F09AADAF-2D47-4F25-9CE4-EAB7409EC57B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F09AADAF-2D47-4F25-9CE4-EAB7409EC57B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F09AADAF-2D47-4F25-9CE4-EAB7409EC57B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F8CB4BE-89A3-4E89-85A9-6512FBE9FABC}
+	EndGlobalSection
+EndGlobal

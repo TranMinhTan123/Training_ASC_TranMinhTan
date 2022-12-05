@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "vietHoaKyTuDauTien";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>13. Viết hàm xử lý viết hoa đầu mỗi ký tự đâu tiên theo tên được truyền vào.</h3>
+    <form action="/Home/XuLyVietHoaKyTuDauTien" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Ký Tự Cần Chuyển Đổi</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtKyTu" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Chuyển đổi" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

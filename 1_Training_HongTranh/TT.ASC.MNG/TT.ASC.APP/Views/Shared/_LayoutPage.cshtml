@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Content/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Content/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/Content/CSS/CSSMeNu.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div style="background-color:#EEE;min-height:680px">
+        <div style="width:100%; box-shadow: -5px -5px 5px #d7d7d7;">
+            <div class="row ">
+                <div class="row col-12 Home-header">
+                    <a href="@Url.Action("Index","Home")">
+                        <img src="~/Images/CarRepair.png" style="width:55px;" />
+                        Home
+                    </a>
+                </div>
+            </div>
+            <div class="row" style="margin-left: 0px; ">
+                <div class="col-md-4" style="height: 672px; overflow-y: auto;">
+                    <ul class="nav flex-column" style="margin-left: -1%; height: 1350px; background-color: #16134e; border-radius: 10px;">
+                        <center class="Menu" style=" color: white; height: 52px; background-color: #16134e;">
+                            <img src="~/Images/th-list-128.png" style=" width: 27px; height: 20px; margin-bottom: 1%;" />
+                            <span style="font-size:20px">MENU</span>
+                        </center>
+                        <li style=" display: contents">
+                            <a class="Menu" href="@Url.Action("dinhDangThoiGian", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />1. Viết hàm để định dạng ngày tháng năm, giờ phút giây
+                            </a>
+                            <a class="Menu" href="@Url.Action("docDaySo", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />2. Viết hàm để Đọc dãy số bất kỳ
+                            </a>
+                            <a class="Menu" href="@Url.Action("docSoTien", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />3. Viết hàm đọc số tiền bất kỳ
+                            </a>
+                            <a class="Menu" href="@Url.Action("randomKyTu", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />4. Viết hàm random chuỗi ký tự và số có chiều dài bất kỳ (quy định được chiều dài chuỗi, số lượng ký tự số trong chuỗi)
+                            </a>
+                            <a class="Menu" href="@Url.Action("xuatNgayDauTien", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />5. Viết hàm truyền vào Tháng và Năm, trả về ngày đầu tiên của tháng
+                            </a>
+                            <a class="Menu" href="@Url.Action("xuatNgayCuoiThang", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />6. Viết hàm truyền vào Tháng và Năm, trả về ngày cuối tháng
+                            </a>
+                            <a class="Menu" href="@Url.Action("xuatNgayDauTuan", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />7. Viết hàm truyền vào ngày bất kỳ, trả về ngày đầu tuần (thứ 2 của tuần đó)
+                            </a>
+                            <a class="Menu" href="@Url.Action("xuatNgayCuoiTuan", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />8. Viết hàm truyền vào ngày bất kỳ, trả về ngày cuối tuần (chủ nhật của tuần đó)
+                            </a>
+                            <a class="Menu" href="@Url.Action("demKhoangTrang", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />9. Viết hàm đếm số khoản trắng trong 1 chuỗi dữ liệu truyền vào.
+                            </a>
+                            <a class="Menu" href="@Url.Action("kiemTraEmail", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />10.	Viết hàm kiểm tra Tính đúng đắn của 1 địa chỉ email truyền vào.
+                            </a>
+                            <a class="Menu" href="@Url.Action("catChuoiHoTen", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />11.	Viết hàm cắt chuỗi họ tên (tách ra họ và tên đệm khi một chuổi họ tên được truyền vào)
+                            </a>
+                            <a class="Menu" href="@Url.Action("lamTronSoThapPhan", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />12. Tìm hiểu các dạng làm tròn và viết hàm làm tròn các số thập phân truyền vào theo các dạng: Floor, Truncate, Round, Ceiling
+                            </a>
+                            <a class="Menu" href="@Url.Action("vietHoaKyTuDauTien", "Home")">
+                                <img src="~/Images/gear.png" style="width: 30px;" />13. Viết hàm xử lý viết hoa đầu mỗi ký tự đâu tiên theo tên được truyền vào.
+                            </a>
+                        </li>
+                        <center class="Menu" style=" color: white; height: 52px; background-color: #16134e;">
+                            <span style="font-size:20px">THỰC HÀNH 2</span>
+                        </center>
+
+                        <a class="Menu" href="@Url.Action("TimViTriKT", "Home")">
+                            <img src="~/Images/gear.png" style="width: 30px;" />1.	Viết hàm kiểm tra chuỗi ký tự, kết quả trả về xác định được trong chuỗi có bao nhiêu ký tự được tìm và ở vị trí bao nhiêu.
+                        </a>
+                        <a class="Menu" href="@Url.Action("RandomHoTen", "Home")">
+                            <img src="~/Images/gear.png" style="width: 30px;" />2.	Viết hàm random họ tên theo danh sách 3 mảng các từ có sẵn (Họ, Đệm, Tên)
+                        </a>
+                        <a class="Menu" href="@Url.Action("TreeView", "Home")">
+                            <img src="~/Images/gear.png" style="width: 30px;" />3. FreeView
+                        </a>
+                    </ul>
+                </div>
+                <div class="col-md-8" style=" border-radius: 5px;">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

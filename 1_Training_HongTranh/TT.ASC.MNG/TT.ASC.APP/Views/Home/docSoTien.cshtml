@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "docSoTien";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>3.	Viết hàm đọc số tiền bất kỳ</h3>
+    <form action="/Home/XuLyDocSoTien" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Số tiền:</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtSoTien" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Đọc số" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

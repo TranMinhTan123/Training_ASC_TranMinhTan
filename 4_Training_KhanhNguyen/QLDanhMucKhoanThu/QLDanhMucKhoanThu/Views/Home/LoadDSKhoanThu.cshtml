@@ -1,0 +1,79 @@
+﻿@using QLDanhMucKhoanThu.Models
+@using Kendo.Mvc.UI
+
+<style>
+    .k-grid-header th.k-header > .k-link {
+        text-align: center;
+    }
+</style>
+
+<script>
+    function onRequestEnd(e) {
+        debugger;
+        if (e.type == "update" && !e.response.Errors) {
+            location.reload();
+            alert("Update record is successfull");
+        }
+
+        if (e.type == "create" && !e.response.Errors) {
+            location.reload();
+            alert("Create record is successfull");
+        }
+    }
+</script>
+    @(Html.Kendo().Grid<QLDanhMucKhoanThu.Models.sp_KhoanThu_Result>
+    ()
+    .Name("grid")
+    .Columns(columns =>
+    {
+    columns.Bound(c => c.MaMH).Title("Mã MH").HtmlAttributes(new { style = "text-align: center;" });
+    columns.Bound(c => c.TenMH).Title("Tên MH");
+    columns.Bound(c => c.SoTC).Title("Số TC").HtmlAttributes(new { style = "text-align: right;" });
+    columns.Bound(c => c.SoTiet).Title("Số tiết").HtmlAttributes(new { style = "text-align: right;" });
+    columns.Bound(c => c.DonGia).Title("Đơn giá").Format("{0:N0}").HtmlAttributes(new { style = "text-align: right;", data_min = 5, data_val_msg = "My Special error message." });
+    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(180).Title("Chức năng");
+    })
+    .ToolBar(toolbar => {
+    toolbar.Create();
+    })
+    .ColumnMenu()
+    .Editable(editable => editable.Mode(GridEditMode.InLine))
+    .Pageable()
+    .Navigatable()
+    .Selectable(selectable =>
+    {
+    selectable.Mode(GridSelectionMode.Single);
+    selectable.Type(GridSelectionType.Row);
+    })
+    .Sortable(sortable =>
+    {
+    sortable.SortMode(GridSortMode.SingleColumn);
+    })
+    .Scrollable()
+    .Filterable()
+    .ToolBar(t=>t.Search())
+    .HtmlAttributes(new {style="height:550px"}).Sortable().Groupable().Scrollable().Pageable().DataSource(dataSource => dataSource
+    .Ajax()
+    .Events(e => e.RequestEnd("onRequestEnd"))
+    .Model(model => model.Id(p => p.Id))
+    .Read(read => read.Action("TBL_KhoanThuMonHoc_Read", "Home")).PageSize(5).Model(model => model.Id(expression: p => p.Id))
+    .Create(create => create.Action("TBL_KhoanThuMonHoc_Create", "Home")).Events(events => events.Error("onError"))
+    .Update(update => update.Action("TBL_KhoanThuMonHoc_Update", "Home"))
+    .Destroy(destroy => destroy.Action("TBL_KhoanThuMonHoc_Destroy", "Home"))
+    )
+    )
+
+    <script>
+        function onError(e, status) {
+            if (e.status == "customerror") {
+                location.reload();
+                alert(e.errors);
+            }
+            else {
+                location.reload();
+                alert("Generic server error.");
+            }
+        }
+    </script>
+
+

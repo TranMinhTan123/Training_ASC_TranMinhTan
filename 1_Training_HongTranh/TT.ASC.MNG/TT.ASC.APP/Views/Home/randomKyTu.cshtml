@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "RandomKyTu";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>4. Viết hàm random chuỗi ký tự và số có chiều dài bất kỳ (quy định được chiều dài chuỗi, số lượng ký tự số trong chuỗi)</h3>
+    <form action="/Home/XuLyRandomKyTu" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập số ký tự</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtSoKyTu" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="RanDom" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThucTap_DoAnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBL_ChiTietPhieuThu">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+      <PropertyRef Name="MaMH" />
+    </Key>
+    <Property Name="SoPhieu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MaMH" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'ThucTap_DoAn.dbo.TBL_DangKy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="TBL_DangKy">
+    <Key>
+      <PropertyRef Name="MaDangKy" />
+    </Key>
+    <Property Name="MaDangKy" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Mssv" Type="varchar" MaxLength="10" />
+    <Property Name="MaHocKi" Type="varchar" MaxLength="30" />
+    <Property Name="NgayDK" Type="date" />
+    <Property Name="MaMH" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TBL_KhoanThuMonHoc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaMH" Type="varchar" MaxLength="100" />
+    <Property Name="TenMH" Type="nvarchar" MaxLength="200" />
+    <Property Name="SoTC" Type="int" />
+    <Property Name="SoTiet" Type="int" />
+    <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TBL_PhieuThu">
+    <Key>
+      <PropertyRef Name="SoPhieu" />
+    </Key>
+    <Property Name="SoPhieu" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mssv" Type="varchar" MaxLength="10" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="100" />
+    <Property Name="NgayThanhToan" Type="date" />
+    <Property Name="SoTienThu" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="DonViThu" Type="nvarchar" MaxLength="100" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="TBL_SinhVien">
+    <Key>
+      <PropertyRef Name="Mssv" />
+    </Key>
+    <Property Name="Mssv" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Hoten" Type="nvarchar" MaxLength="30" />
+    <Property Name="Gioitinh" Type="nvarchar" MaxLength="10" />
+    <Property Name="Ngaysinh" Type="date" />
+    <Property Name="Lophoc" Type="varchar" MaxLength="10" />
+    <Property Name="Mail" Type="varchar" MaxLength="50" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TBL_ThanhToan">
+    <Key>
+      <PropertyRef Name="Idtt" />
+    </Key>
+    <Property Name="Idtt" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mssv" Type="varchar" MaxLength="10" />
+    <Property Name="SoPhieu" Type="varchar" MaxLength="100" />
+    <Property Name="SoThe" Type="int" />
+    <Property Name="TenThe" Type="varchar" MaxLength="100" />
+    <Property Name="So" Type="int" />
+    <Property Name="NgayHetHan" Type="date" />
+  </EntityType>
+  <Function Name="sp_Delete_KhoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_GetSinhVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="mssv" Type="varchar" Mode="In" />
+    <Parameter Name="matkhau" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_Insert_KhoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Mamh" Type="varchar" Mode="In" />
+    <Parameter Name="Tenmh" Type="nvarchar" Mode="In" />
+    <Parameter Name="Sotc" Type="int" Mode="In" />
+    <Parameter Name="Sotiet" Type="int" Mode="In" />
+    <Parameter Name="Dongia" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="sp_KhoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_Update_KhoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="Mamh" Type="varchar" Mode="In" />
+    <Parameter Name="Tenmh" Type="nvarchar" Mode="In" />
+    <Parameter Name="Sotc" Type="int" Mode="In" />
+    <Parameter Name="Sotiet" Type="int" Mode="In" />
+    <Parameter Name="Dongia" Type="decimal" Mode="In" />
+  </Function>
+  <EntityContainer Name="ThucTap_DoAnModelStoreContainer">
+    <EntitySet Name="TBL_ChiTietPhieuThu" EntityType="Self.TBL_ChiTietPhieuThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_KhoanThuMonHoc" EntityType="Self.TBL_KhoanThuMonHoc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_PhieuThu" EntityType="Self.TBL_PhieuThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_SinhVien" EntityType="Self.TBL_SinhVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_ThanhToan" EntityType="Self.TBL_ThanhToan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TBL_DangKy" EntityType="Self.TBL_DangKy" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[TBL_DangKy].[MaDangKy] AS [MaDangKy], 
+[TBL_DangKy].[Mssv] AS [Mssv], 
+[TBL_DangKy].[MaHocKi] AS [MaHocKi], 
+[TBL_DangKy].[NgayDK] AS [NgayDK], 
+[TBL_DangKy].[MaMH] AS [MaMH]
+FROM [dbo].[TBL_DangKy] AS [TBL_DangKy]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

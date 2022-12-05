@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "kiemTraEmail";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>10.	 Viết hàm kiểm tra Tính đúng đắn của 1 địa chỉ email truyền vào.</h3>
+    <form action="/Home/XuLyKiemTraEmail" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập Email</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtEmail" />
+                    </td> 
+                    <td>
+                        <input type="submit" value="Kiểm Tra" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

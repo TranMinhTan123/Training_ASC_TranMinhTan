@@ -1,0 +1,10 @@
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\bin\Debug\BTH5_EFW.dll.config
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\bin\Debug\BTH5_EFW.dll
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\bin\Debug\BTH5_EFW.pdb
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\bin\Debug\EntityFramework.dll
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\bin\Debug\EntityFramework.xml
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\obj\Debug\BTH5_EFW.csproj.CoreCompileInputs.cache
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\obj\Debug\BTH5_EFW.csproj.CopyComplete
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\obj\Debug\BTH5_EFW.dll
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\obj\Debug\BTH5_EFW.pdb
+E:\ThucTap\BT_Tuan02\Buoi02\BTH5_EntityFrameWork_TranMinhTan\BTH5_EFW\obj\Debug\BTH5_EFW.csproj.AssemblyReference.cache

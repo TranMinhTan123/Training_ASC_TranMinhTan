@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Contents/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    .css-text {
+        padding-top: 2%;
+        font-size: 15px;
+    }
+
+    .tudanhgia {
+        text-align: -webkit-right;
+    }
+
+    .diem {
+        color: #0e72c7;
+    }
+
+    .form-control-texta {
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    fieldset {
+        border: 1px solid #b6a6a6;
+        border-radius: 3px;
+        width: 100px;
+        text-align: left;
+        padding: inherit;
+        height: 37px;
+    }
+
+    legend {
+        font-size: 12px;
+    }
+
+    .css-text-a {
+        width: 32%;
+        height: 132%;
+        border: 1px solid #b6a6a6;
+        border-radius: 5px;
+    }
+    .css-sp-danhgia {
+        position: absolute;
+        font-size: 12px;
+        background-color: #fff;
+        right: 11%;
+        top: -31%;
+    }
+    textarea:invalid {
+       
+    }
+    form.submitted :invalid {
+        border: 1px solid red;
+    }   
+
+</style>
+<form id="testForm">
+    <div class="container" style="padding-top: 2%;">
+        <div>
+            <div>
+                <div >
+                    <h5>1. KẾT QUẢ TỰ ĐÁNH GIÁ</h5>
+                </div>
+                <div  class="row css-text">
+                    <div class="col-md-8">
+                        <span>1.1. Chính trị tư tưởng</span>
+                        <span class="diem ">(10,00 điểm)</span>
+                    </div>
+                    <div class="col-md-4 tudanhgia">
+                        <span class=" css-sp-danhgia">Tự đánh giá</span>
+                        <input type="number" id="ip1" min="0" max="10" class="css-text-a" required />
+                    </div>
+                </div>
+                <div class="row css-text">
+                    <div class="col-md-8 ">
+                        <span>1.2. Đạo đức lối sống</span>
+                        <span class="diem">(5,00 điểm)</span>
+                    </div>
+                    <div class="col-md-4 tudanhgia">
+                        <span class=" css-sp-danhgia">Tự đánh giá</span>
+                        <input type="number" id="ip1" min="0" max="5" class="css-text-a" required />
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="css-text">
+                    <textarea id="TextArea1" rows="2" cols="20" placeholder="Nhập nội dung..." class="form-control-texta" required></textarea>
+                </div>
+                <div class="css-text">
+                    <span>1.3. Tác phong, lề lối làm việc</span>
+                </div>
+                <div class="css-text">
+                    <textarea id="TextArea2" rows="2" cols="20" placeholder="Nhập nội dung..." class="form-control-texta" required></textarea>
+                </div>
+                <div class="css-text">
+                    <span>1.4. Ý thức tổ chức kỹ luật</span>
+                </div>
+                <div class="css-text">
+                    <textarea id="TextArea3" rows="2" cols="20" placeholder="Nhập nội dung..." class="form-control-texta" required></textarea>
+                </div>
+                <div class="css-text">
+                    <span>1.5. Kết quả thực hiện chức trách, nhiệm vụ được giao (xác định rõ nội dung công việc thực hiện; tỉ lệ hoàn thành, chất lượng, tiến độ công việc)</span>
+                </div>
+                <div class="css-text">
+                    <textarea id="TextArea4" rows="2" cols="20" placeholder="Nhập nội dung..." class="form-control-texta" required></textarea>
+                </div>
+                <div class="css-text">
+                    <span>1.6. Thái độ phục vụ nhân dân, doanh nghiệp (đối với những vị trí tiếp xúc trực tiếp hoặc trực tiếp giải quyết công việc của người dân và doanh nghiệp)</span>
+                </div>
+                <div class="css-text">
+                    <textarea id="TextArea5" rows="2" cols="20" placeholder="Nhập nội dung..." class="form-control-texta" required></textarea>
+                </div>
+                <div>
+                    <input id="submitButton" type="submit" value="Lưu thay đổi" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+  
+</form>
+
+<script>
+    document.getElementById("submitButton").addEventListener("click", function () {
+        document.getElementById("testForm").className = "submitted";
+    });
+
+    const numberInput = document.getElementById('ip1', 'ip2');
+    console.log(numberInput.value);
+</script>
+
+
+
+
+

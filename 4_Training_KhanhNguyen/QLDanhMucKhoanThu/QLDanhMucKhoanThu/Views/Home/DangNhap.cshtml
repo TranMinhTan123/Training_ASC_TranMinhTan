@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DangNhap</title>
+    <link href="~/Content/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="form-dang-nhap">
+        <div class="child">
+            <h5 class="title">CỔNG THÔNG TIN SINH VIÊN</h5>
+            <img class="login-img" src="~/Images/login.png" />
+            <form action="/Home/XuLyDangNhap" method="post">
+                <input type="text" name="mssv" placeholder="Nhập mã số sinh viên" class="textfield" /><br />
+                <input type="password" name="matkhau" placeholder="Nhập mật khẩu" class="textfield" /><br />
+                <input type="submit" value="Đăng nhập" class="btnlogin" />
+            </form>
+            <div class="error">
+                <label>@ViewBag.Loi</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

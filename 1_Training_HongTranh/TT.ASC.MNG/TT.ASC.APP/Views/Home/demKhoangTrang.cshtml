@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "demKhoangTrang";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>9.	Viết hàm đếm số khoản trắng trong 1 chuỗi dữ liệu truyền vào.</h3>
+    <form action="/Home/XuLyDemKhoangTrang" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Nhập chuỗi cần đếm</span>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="txtChuoi" placeholder="Nhập chuỗi" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Đếm" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table> 
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+
+

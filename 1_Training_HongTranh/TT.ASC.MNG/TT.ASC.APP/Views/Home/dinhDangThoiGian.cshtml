@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "DinhDangThoiGian";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<div class="container">
+    <h3>1. Viết hàm để định dạng ngày tháng năm, giờ phút giây</h3>
+    <form action="/Home/XuLyDinhDangThoiGian" method="post" style="display:inline-block">
+        <div>
+            <table class="table">
+                <tr>
+                    <td>
+                        <span style="font-size:17px;font-weight:bold;">Chọn thời gian</span>
+                    </td>
+                    <td>
+                        <input type="datetime-local" class="form-control" name="txtdate" />
+                    </td>
+                    <td>
+                        <input type="submit" value="Định dạng" class="btn btn-danger" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+    <div>
+        <span style="font-size:17px;font-weight:bold;">@ViewBag.kq</span>
+    </div>
+</div>
+

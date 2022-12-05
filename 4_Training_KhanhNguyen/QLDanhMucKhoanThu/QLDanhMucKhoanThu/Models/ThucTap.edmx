@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ThucTap_DoAnModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_ChiTietPhieuThu">
+          <Key>
+            <PropertyRef Name="SoPhieu" />
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="SoPhieu" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MaMH" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ThucTap_DoAn.dbo.TBL_DangKy' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TBL_DangKy">
+          <Key>
+            <PropertyRef Name="MaDangKy" />
+          </Key>
+          <Property Name="MaDangKy" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Mssv" Type="varchar" MaxLength="10" />
+          <Property Name="MaHocKi" Type="varchar" MaxLength="30" />
+          <Property Name="NgayDK" Type="date" />
+          <Property Name="MaMH" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TBL_KhoanThuMonHoc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaMH" Type="varchar" MaxLength="100" />
+          <Property Name="TenMH" Type="nvarchar" MaxLength="200" />
+          <Property Name="SoTC" Type="int" />
+          <Property Name="SoTiet" Type="int" />
+          <Property Name="DonGia" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBL_PhieuThu">
+          <Key>
+            <PropertyRef Name="SoPhieu" />
+          </Key>
+          <Property Name="SoPhieu" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Mssv" Type="varchar" MaxLength="10" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="100" />
+          <Property Name="NgayThanhToan" Type="date" />
+          <Property Name="SoTienThu" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DonViThu" Type="nvarchar" MaxLength="100" />
+          <Property Name="TrangThai" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="TBL_SinhVien">
+          <Key>
+            <PropertyRef Name="Mssv" />
+          </Key>
+          <Property Name="Mssv" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Hoten" Type="nvarchar" MaxLength="30" />
+          <Property Name="Gioitinh" Type="nvarchar" MaxLength="10" />
+          <Property Name="Ngaysinh" Type="date" />
+          <Property Name="Lophoc" Type="varchar" MaxLength="10" />
+          <Property Name="Mail" Type="varchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TBL_ThanhToan">
+          <Key>
+            <PropertyRef Name="Idtt" />
+          </Key>
+          <Property Name="Idtt" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Mssv" Type="varchar" MaxLength="10" />
+          <Property Name="SoPhieu" Type="varchar" MaxLength="100" />
+          <Property Name="SoThe" Type="int" />
+          <Property Name="TenThe" Type="varchar" MaxLength="100" />
+          <Property Name="So" Type="int" />
+          <Property Name="NgayHetHan" Type="date" />
+        </EntityType>
+        <Function Name="sp_Delete_KhoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_GetSinhVien" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="mssv" Type="varchar" Mode="In" />
+          <Parameter Name="matkhau" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Insert_KhoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Mamh" Type="varchar" Mode="In" />
+          <Parameter Name="Tenmh" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sotc" Type="int" Mode="In" />
+          <Parameter Name="Sotiet" Type="int" Mode="In" />
+          <Parameter Name="Dongia" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="sp_KhoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="sp_Update_KhoanThu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <Parameter Name="Mamh" Type="varchar" Mode="In" />
+          <Parameter Name="Tenmh" Type="nvarchar" Mode="In" />
+          <Parameter Name="Sotc" Type="int" Mode="In" />
+          <Parameter Name="Sotiet" Type="int" Mode="In" />
+          <Parameter Name="Dongia" Type="decimal" Mode="In" />
+        </Function>
+        <EntityContainer Name="ThucTap_DoAnModelStoreContainer">
+          <EntitySet Name="TBL_ChiTietPhieuThu" EntityType="Self.TBL_ChiTietPhieuThu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_KhoanThuMonHoc" EntityType="Self.TBL_KhoanThuMonHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PhieuThu" EntityType="Self.TBL_PhieuThu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SinhVien" EntityType="Self.TBL_SinhVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ThanhToan" EntityType="Self.TBL_ThanhToan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DangKy" EntityType="Self.TBL_DangKy" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[TBL_DangKy].[MaDangKy] AS [MaDangKy], 
+[TBL_DangKy].[Mssv] AS [Mssv], 
+[TBL_DangKy].[MaHocKi] AS [MaHocKi], 
+[TBL_DangKy].[NgayDK] AS [NgayDK], 
+[TBL_DangKy].[MaMH] AS [MaMH]
+FROM [dbo].[TBL_DangKy] AS [TBL_DangKy]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ThucTap_DoAnModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_ChiTietPhieuThu">
+          <Key>
+            <PropertyRef Name="SoPhieu" />
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="SoPhieu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaMH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_KhoanThuMonHoc">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaMH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TenMH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SoTC" Type="Int32" />
+          <Property Name="SoTiet" Type="Int32" />
+          <Property Name="DonGia" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="TBL_PhieuThu">
+          <Key>
+            <PropertyRef Name="SoPhieu" />
+          </Key>
+          <Property Name="SoPhieu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mssv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NoiDung" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NgayThanhToan" Type="DateTime" Precision="0" />
+          <Property Name="SoTienThu" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DonViThu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TrangThai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_SinhVien">
+          <Key>
+            <PropertyRef Name="Mssv" />
+          </Key>
+          <Property Name="Mssv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Hoten" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Gioitinh" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Ngaysinh" Type="DateTime" Precision="0" />
+          <Property Name="Lophoc" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MatKhau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_ThanhToan">
+          <Key>
+            <PropertyRef Name="Idtt" />
+          </Key>
+          <Property Name="Idtt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mssv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="SoPhieu" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SoThe" Type="Int32" />
+          <Property Name="TenThe" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="So" Type="Int32" />
+          <Property Name="NgayHetHan" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="TBL_DangKy">
+          <Key>
+            <PropertyRef Name="MaDangKy" />
+          </Key>
+          <Property Name="MaDangKy" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Mssv" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaHocKi" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NgayDK" Type="DateTime" Precision="0" />
+          <Property Name="MaMH" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="ThucTap_DoAnEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_ChiTietPhieuThu" EntityType="Self.TBL_ChiTietPhieuThu" />
+          <EntitySet Name="TBL_KhoanThuMonHoc" EntityType="Self.TBL_KhoanThuMonHoc" />
+          <EntitySet Name="TBL_PhieuThu" EntityType="Self.TBL_PhieuThu" />
+          <EntitySet Name="TBL_SinhVien" EntityType="Self.TBL_SinhVien" />
+          <EntitySet Name="TBL_ThanhToan" EntityType="Self.TBL_ThanhToan" />
+          <EntitySet Name="TBL_DangKy" EntityType="Self.TBL_DangKy" />
+          <FunctionImport Name="sp_Delete_KhoanThu">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_GetSinhVien" ReturnType="Collection(ThucTap_DoAnModel.sp_GetSinhVien_Result)">
+            <Parameter Name="mssv" Mode="In" Type="String" />
+            <Parameter Name="matkhau" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Insert_KhoanThu">
+            <Parameter Name="Mamh" Mode="In" Type="String" />
+            <Parameter Name="Tenmh" Mode="In" Type="String" />
+            <Parameter Name="Sotc" Mode="In" Type="Int32" />
+            <Parameter Name="Sotiet" Mode="In" Type="Int32" />
+            <Parameter Name="Dongia" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="sp_KhoanThu" ReturnType="Collection(ThucTap_DoAnModel.sp_KhoanThu_Result)" />
+          <FunctionImport Name="sp_Update_KhoanThu">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+            <Parameter Name="Mamh" Mode="In" Type="String" />
+            <Parameter Name="Tenmh" Mode="In" Type="String" />
+            <Parameter Name="Sotc" Mode="In" Type="Int32" />
+            <Parameter Name="Sotiet" Mode="In" Type="Int32" />
+            <Parameter Name="Dongia" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_GetSinhVien_Result">
+          <Property Type="String" Name="Mssv" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Hoten" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Gioitinh" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="Ngaysinh" Nullable="true" />
+          <Property Type="String" Name="Lophoc" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Mail" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MatKhau" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="sp_KhoanThu_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="MaMH" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="TenMH" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="SoTC" Nullable="true" />
+          <Property Type="Int32" Name="SoTiet" Nullable="true" />
+          <Property Type="Decimal" Name="DonGia" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ThucTap_DoAnModelStoreContainer" CdmEntityContainer="ThucTap_DoAnEntities1">
+          <EntitySetMapping Name="TBL_ChiTietPhieuThu">
+            <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_ChiTietPhieuThu">
+              <MappingFragment StoreEntitySet="TBL_ChiTietPhieuThu">
+                <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_KhoanThuMonHoc">
+            <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_KhoanThuMonHoc">
+              <MappingFragment StoreEntitySet="TBL_KhoanThuMonHoc">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+                <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+                <ScalarProperty Name="SoTC" ColumnName="SoTC" />
+                <ScalarProperty Name="SoTiet" ColumnName="SoTiet" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PhieuThu">
+            <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_PhieuThu">
+              <MappingFragment StoreEntitySet="TBL_PhieuThu">
+                <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+                <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="NgayThanhToan" ColumnName="NgayThanhToan" />
+                <ScalarProperty Name="SoTienThu" ColumnName="SoTienThu" />
+                <ScalarProperty Name="DonViThu" ColumnName="DonViThu" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SinhVien">
+            <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_SinhVien">
+              <MappingFragment StoreEntitySet="TBL_SinhVien">
+                <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+                <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+                <ScalarProperty Name="Lophoc" ColumnName="Lophoc" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ThanhToan">
+            <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_ThanhToan">
+              <MappingFragment StoreEntitySet="TBL_ThanhToan">
+                <ScalarProperty Name="Idtt" ColumnName="Idtt" />
+                <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+                <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+                <ScalarProperty Name="SoThe" ColumnName="SoThe" />
+                <ScalarProperty Name="TenThe" ColumnName="TenThe" />
+                <ScalarProperty Name="So" ColumnName="So" />
+                <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DangKy">
+            <EntityTypeMapping TypeName="ThucTap_DoAnModel.TBL_DangKy">
+              <MappingFragment StoreEntitySet="TBL_DangKy">
+                <ScalarProperty Name="MaDangKy" ColumnName="MaDangKy" />
+                <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+                <ScalarProperty Name="MaHocKi" ColumnName="MaHocKi" />
+                <ScalarProperty Name="NgayDK" ColumnName="NgayDK" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_Delete_KhoanThu" FunctionName="ThucTap_DoAnModel.Store.sp_Delete_KhoanThu" />
+          <FunctionImportMapping FunctionImportName="sp_GetSinhVien" FunctionName="ThucTap_DoAnModel.Store.sp_GetSinhVien">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_GetSinhVien_Result">
+                <ScalarProperty Name="Mssv" ColumnName="Mssv" />
+                <ScalarProperty Name="Hoten" ColumnName="Hoten" />
+                <ScalarProperty Name="Gioitinh" ColumnName="Gioitinh" />
+                <ScalarProperty Name="Ngaysinh" ColumnName="Ngaysinh" />
+                <ScalarProperty Name="Lophoc" ColumnName="Lophoc" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Insert_KhoanThu" FunctionName="ThucTap_DoAnModel.Store.sp_Insert_KhoanThu" />
+          <FunctionImportMapping FunctionImportName="sp_KhoanThu" FunctionName="ThucTap_DoAnModel.Store.sp_KhoanThu">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ThucTap_DoAnModel.sp_KhoanThu_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+                <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+                <ScalarProperty Name="SoTC" ColumnName="SoTC" />
+                <ScalarProperty Name="SoTiet" ColumnName="SoTiet" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Update_KhoanThu" FunctionName="ThucTap_DoAnModel.Store.sp_Update_KhoanThu" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
